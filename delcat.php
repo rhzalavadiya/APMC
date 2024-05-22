@@ -1,0 +1,23 @@
+<?php
+			$con=mysqli_connect('localhost','root','','APMC');
+			$sql="select * from catg";
+			if($result=mysqli_query($con,$sql))
+		    {
+				if(mysqli_num_rows($result)>0)
+				{
+					while($row=mysqli_fetch_array($result))
+					{ 
+						$s="DELETE FROM catg where cid=$_GET[a1]";
+						$r=mysqli_query($con,$s);
+					}
+					if ($r>0) 
+						{
+							echo "<h3>  Delete successfully!</h3>";
+						} 
+						else 
+						{
+							echo "<h3>Fail</h3>";
+						}
+				}
+			}
+?>
